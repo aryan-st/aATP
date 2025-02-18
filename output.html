@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Output - aATP Dashboards</title>
+</head>
+<body>
+  <a href="index.html">Back to Index</a>
+  <h1>aATP Dashboards</h1>
+  <div class="filter-container">
+      <iframe
+      id="iframefilter"
+      class="iframe-full-width"
+      title="URL_builder_custom - Copy"
+      src="https://app.powerbi.com/reportEmbed?reportId=9e555d18-2c96-484a-af65-c87a5441943f&autoAuth=true&ctid=75e027c9-20d5-47d5-b82f-77d7cd041e8f"
+      frameborder="0"
+      allowfullscreen="true">
+      </iframe>
+  </div>
+  <p>Parameter 1: <span id="cat0"></span></p>
+  <p>Parameter 2: <span id="cat1"></span></p>
+  <p>Parameter 3: <span id="cat2"></span></p>
+  <p>Parameter 4: <span id="cat3"></span></p>
+  <p>Parameter 5: <span id="cat4"></span></p>
+  <p>Parameter 6: <span id="cat5"></span></p>
+  <p>Parameter 7: <span id="cat6"></span></p>
+  <p>Parameter 8: <span id="cat7"></span></p>
+  <p>Parameter 9: <span id="cat8"></span></p>
+  <p>Parameter 10: <span id="cat9"></span></p>
+  
+  <div class="grid-container">
+    <iframe 
+        id="iframe0"
+        title="1.1 Evolution trend on full horizon" 
+        frameborder="0" 
+        allowfullscreen="true">
+    </iframe>
+    <iframe 
+        id="iframe1"
+        title="1.2 Further Evolution and Effect by Quarter & Month" 
+        frameborder="0" 
+        allowfullscreen="true">
+    </iframe>
+    <iframe
+        id="iframe2"
+        title="1.3 BiBA DSR Evolution of – side by side view full year/quarter/month view" 
+        frameborder="0" 
+        allowfullscreen="true">
+    </iframe>
+    <iframe
+        id="iframe3"
+        title="2. Deployment status & boundaries" 
+        frameborder="0" 
+        allowfullscreen="true">
+    </iframe>
+    <iframe
+        id="iframe4"
+        title="3. Customer clustering check" 
+        frameborder="0" 
+        allowfullscreen="true">
+    </iframe>
+    <iframe
+        id="iframe5"
+        title="4. PAL vs. RD Backlog check" 
+        frameborder="0" 
+        allowfullscreen="true">
+    </iframe>
+    <iframe
+        id="iframe6"
+        title="5. Backlog sorting /priority check" 
+        frameborder="0" 
+        allowfullscreen="true">
+    </iframe>
+    <iframe
+        id="iframe7"
+        title="6. Customer- Constraints" 
+        frameborder="0" 
+        allowfullscreen="true">
+    </iframe>
+    <iframe
+        id="iframe8"
+        title="7. E2-vs. aATP Comparison-" 
+        frameborder="0" 
+        allowfullscreen="true">
+    </iframe>
+    <iframe
+        id="iframe9"
+        title="8. Other Checks: Find a report with Sid and Sue" 
+        frameborder="0" 
+        allowfullscreen="true">
+    </iframe>
+  </div>
+  <!-------------------------------- JS -------------------------------------->
+  <script>
+    // Function to get URL parameters
+    function getParameterByName(name) {
+      let url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+
+    // Get parameters from URL and display
+    let pbidata = getParameterByName('pbidata');
+    if (pbidata) {
+      let params = pbidata.split(',');
+      document.getElementById('cat0').textContent = params[0] || '';
+      document.getElementById('cat1').textContent = params[1] || '';
+      document.getElementById('cat2').textContent = params[2] || '';
+      document.getElementById('cat3').textContent = params[3] || '';
+      document.getElementById('cat4').textContent = params[4] || '';
+      document.getElementById('cat5').textContent = params[5] || '';
+      document.getElementById('cat6').textContent = params[6] || '';
+      document.getElementById('cat7').textContent = params[7] || '';
+      document.getElementById('cat8').textContent = params[8] || '';
+      document.getElementById('cat9').textContent = params[9] || '';
+    }
+
+    // Set initial iframe src values
+    document.getElementById('iframe0').src = document.getElementById('cat0').textContent;
+    document.getElementById('iframe1').src = document.getElementById('cat1').textContent;
+    document.getElementById('iframe2').src = document.getElementById('cat2').textContent;
+    document.getElementById('iframe3').src = document.getElementById('cat3').textContent;
+    document.getElementById('iframe4').src = document.getElementById('cat4').textContent;
+    document.getElementById('iframe5').src = document.getElementById('cat5').textContent;
+    document.getElementById('iframe6').src = document.getElementById('cat6').textContent;
+    document.getElementById('iframe7').src = document.getElementById('cat7').textContent;
+    document.getElementById('iframe8').src = document.getElementById('cat8').textContent;
+    document.getElementById('iframe9').src = document.getElementById('cat9').textContent;
+  </script>
+  <!-------------------------------- CSS ------------------------------------->
+  <style>
+    body {
+        background-color: #f0f8ff;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .filter-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+        padding: 20px;
+        justify-items: center;
+    }
+    iframe {
+        width: 100%;
+        height: 500px;
+        border: 1px solid #ccc;
+    }
+    .iframe-full-width {
+        width: 100%;
+        height: 420px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: none;
+        overflow: hidden;
+    }
+</style>
+</body>
+</html>

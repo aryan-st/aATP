@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>aATP Dashboard</title>
+        <!-------------------------------- JS ------------------------------------->
+        <script>
+            function updateIframes() {
+                const urls = document.getElementById('urls').value.split(',');
+        
+                if (urls.length >= 3) {
+                    document.getElementById('iframe1').src = urls[0].trim();
+                    document.getElementById('iframe2').src = urls[1].trim();
+                    document.getElementById('iframe3').src = urls[2].trim();
+                } else {
+                    alert('Please enter at least 3 URLs separated by commas.');
+                }
+            }
+        </script>
+
+    </head>
+    <body>
+        <!-------------------------------- HTML ------------------------------------->
+        <a href="index.html">Go to Index</a>
+        <h1>aATP Dashboards</h1>
+        <div class="filter-container">
+            <iframe
+            id="iframe0"
+            class="iframe-full-width"
+            title="URL_builder_custom - Copy"
+            src="https://app.powerbi.com/reportEmbed?reportId=9e555d18-2c96-484a-af65-c87a5441943f&autoAuth=true&ctid=75e027c9-20d5-47d5-b82f-77d7cd041e8f"
+            frameborder="0"
+            allowfullscreen="true">
+            </iframe>
+        </div>
+        <div class="input-container">
+            <input type="text" id="urls" placeholder="Enter URLs for iframes separated by commas">
+            <button onclick="updateIframes()">Update Iframes</button>
+        </div>
+        <div class="grid-container">
+            <iframe 
+                id="iframe1"
+                title="Backlog Report (BIBA)" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe
+                id="iframe2"
+                title="BiBa Evolution 2024 DSR" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe 
+                id="iframe3"
+                title="Backlog Report (BIBA) - Copy" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>   
+        </div>
+        <!-- <div class="grid-container">
+            <iframe 
+                title="Backlog Report (BIBA)" 
+                src="https://app.powerbi.com/reportEmbed?reportId=5c15e513-8301-410a-8bc2-426653c7ca23&pageName=ReportSectiondfec9f8c048a85cb0e05&autoAuth=true" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe 
+                title="BiBa Evolution 2024 DSR" 
+                src="https://app.powerbi.com/reportEmbed?reportId=92ff1662-919e-4f70-a865-633a9bf84646&autoAuth=true&ctid=75e027c9-20d5-47d5-b82f-77d7cd041e8f&ReportSection=93d73847454954704bcf" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe 
+                title="Backlog Report (BIBA) - Copy" 
+                src="https://app.powerbi.com/reportEmbed?reportId=6b8777b7-d32b-459a-9d9f-ead82b5285db&autoAuth=true&ctid=75e027c9-20d5-47d5-b82f-77d7cd041e8f&pageName=ReportSection5b17c212f071b04801f6" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>   
+        </div> -->
+
+        
+        <!-------------------------------- CSS ------------------------------------->
+        <style>
+            body {
+                background-color: #f0f8ff;
+            }
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .filter-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 20px;
+                padding: 20px;
+                justify-items: center;
+            }
+            iframe {
+                width: 100%;
+                height: 500px;
+                border: 1px solid #ccc;
+            }
+            .iframe-full-width {
+                width: 100%;
+                height: 420px;
+                padding-left: 20px;
+                padding-right: 20px;
+                border: none;
+                overflow: hidden;
+            }
+        </style>
+    </body>
+</html>
+
+
+
+
+
+
