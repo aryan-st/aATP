@@ -1,62 +1,183 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Home - aATP Dashboards</title>
-</head>
-<body>
-    <a href="output.html">Go to Output</a>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>aATP Dashboard</title>
+        <!-------------------------------- JS ------------------------------------->
+        <script>
+            async function updateIframes() {
+                try {
+                    const clipboardText = await navigator.clipboard.readText();
+                    document.getElementById('urls').value = clipboardText;
+                    const urls = clipboardText.split(',');
+    
+                    if (urls.length >= 10) {
+                        document.getElementById('iframe1').src = urls[0].trim();
+                        document.getElementById('iframe2').src = urls[1].trim();
+                        document.getElementById('iframe3').src = urls[2].trim();
+                        document.getElementById('iframe4').src = urls[3].trim();
+                        document.getElementById('iframe5').src = urls[4].trim();
+                        document.getElementById('iframe6').src = urls[5].trim();
+                        document.getElementById('iframe7').src = urls[6].trim();
+                        document.getElementById('iframe8').src = urls[7].trim();
+                        document.getElementById('iframe9').src = urls[8].trim();
+                        document.getElementById('iframe10').src = urls[9].trim();
+                    } else {
+                        alert('Please enter at least 10 URLs separated by commas.');
+                    }
+                } catch (err) {
+                    console.error('Failed to read clipboard contents: ', err);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!-------------------------------- HTML ------------------------------------->
+        <h1>aATP Dashboards</h1>
+        <div class="filter-container">
+            <iframe
+            id="iframe0"
+            class="iframe-full-width"
+            title="URL_builder_custom - Copy"
+            src="https://app.powerbi.com/reportEmbed?reportId=b63b6d65-ce01-45f4-9a85-5c30781acdad&autoAuth=true&ctid=75e027c9-20d5-47d5-b82f-77d7cd041e8f"
+            frameborder="0"
+            allowfullscreen="true">
+            </iframe>
+        </div>
+        <div class="input-container">
+            <input type="text" id="urls" placeholder="Enter URLs for iframes separated by commas" style="display: none;">
+            <button onclick="updateIframes()">Update Iframes</button>
+        </div>
+        <div class="grid-container">
+            <iframe 
+                id="iframe1"
+                title="Backlog Report (BIBA)" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe
+                id="iframe2"
+                title="BiBa Evolution 2024 DSR" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe 
+                id="iframe3"
+                title="Backlog Report (BIBA) - Copy" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe 
+                id="iframe4"
+                title="Dashboard 4" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe 
+                id="iframe5"
+                title="Dashboard 5" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe 
+                id="iframe6"
+                title="Dashboard 6" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe 
+                id="iframe7"
+                title="Dashboard 7" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe 
+                id="iframe8"
+                title="Dashboard 8" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe 
+                id="iframe9"
+                title="Dashboard 8" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>   
+            <iframe 
+                id="iframe10"
+                title="Dashboard 8" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>      
+        </div>   
+        </div>
+        <!-- <div class="grid-container">
+            <iframe 
+                title="Backlog Report (BIBA)" 
+                src="https://app.powerbi.com/reportEmbed?reportId=5c15e513-8301-410a-8bc2-426653c7ca23&pageName=ReportSectiondfec9f8c048a85cb0e05&autoAuth=true" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe 
+                title="BiBa Evolution 2024 DSR" 
+                src="https://app.powerbi.com/reportEmbed?reportId=92ff1662-919e-4f70-a865-633a9bf84646&autoAuth=true&ctid=75e027c9-20d5-47d5-b82f-77d7cd041e8f&ReportSection=93d73847454954704bcf" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>
+            <iframe 
+                title="Backlog Report (BIBA) - Copy" 
+                src="https://app.powerbi.com/reportEmbed?reportId=6b8777b7-d32b-459a-9d9f-ead82b5285db&autoAuth=true&ctid=75e027c9-20d5-47d5-b82f-77d7cd041e8f&pageName=ReportSection5b17c212f071b04801f6" 
+                frameborder="0" 
+                allowfullscreen="true">
+            </iframe>   
+        </div> -->
 
-    <h1>aATP Dashboards</h1>
-    <div class="filter-container">
-        <iframe
-        id="iframe0"
-        class="iframe-full-width"
-        title="URL_builder_custom - Copy"
-        src="https://app.powerbi.com/reportEmbed?reportId=9e555d18-2c96-484a-af65-c87a5441943f&autoAuth=true&ctid=75e027c9-20d5-47d5-b82f-77d7cd041e8f"
-        frameborder="0"
-        allowfullscreen="true">
-        </iframe>
-        <form action="output.html" method="get">
-            <label for="pbidata">Filter :</label><br>
-            <input type="text" id="pbidata" name="pbidata" required><br><br>
-            <button type="submit">Update</button>
-        </form>
-    </div>
-
-    <!-------------------------------- CSS ------------------------------------->
-    <style>
-    body {
-        background-color: #f0f8ff;
-    }
-    h1 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .filter-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 20px;
-        padding: 20px;
-        justify-items: center;
-    }
-    iframe {
-        width: 100%;
-        height: 500px;
-        border: 1px solid #ccc;
-    }
-    .iframe-full-width {
-        width: 100%;
-        height: 420px;
-        padding-left: 20px;
-        padding-right: 20px;
-        border: none;
-        overflow: hidden;
-    }
-    </style>
-</body>
+        
+        <!-------------------------------- CSS ------------------------------------->
+        <style>
+            body {
+                background-color: #f0f8ff;
+            }
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .filter-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 20px;
+                padding: 20px;
+                justify-items: center;
+            }
+            iframe {
+                width: 100%;
+                height: 500px;
+                border: 1px solid #ccc;
+            }
+            .iframe-full-width {
+                width: 100%;
+                height: 420px;
+                padding-left: 20px;
+                padding-right: 20px;
+                border: none;
+                overflow: hidden;
+            }
+        </style>
+    </body>
 </html>
