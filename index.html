@@ -24,7 +24,7 @@
                         document.getElementById('iframe9').src = urls[8].trim();
                         document.getElementById('iframe10').src = urls[9].trim();
                     } else {
-                        alert('Please enter at least 10 URLs separated by commas.');
+                        alert('Please Copy the filters from the Power BI report and try again');
                     }
                 } catch (err) {
                     console.error('Failed to read clipboard contents: ', err);
@@ -42,8 +42,7 @@
             title="URL_builder_custom - Copy"
             src="https://app.powerbi.com/reportEmbed?reportId=b44ed7c9-c318-4714-9b58-bc4f61f3fd2e&autoAuth=true&ctid=75e027c9-20d5-47d5-b82f-77d7cd041e8f"
             frameborder="0"
-            allowfullscreen="true"
-            sandbox="allow-same-origin allow-scripts">
+            allowfullscreen="true">
             </iframe>
         </div>
         <p></p>
