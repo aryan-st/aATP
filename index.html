@@ -40,15 +40,18 @@
             id="iframe0"
             class="iframe-full-width"
             title="URL_builder_custom - Copy"
-            src="https://app.powerbi.com/reportEmbed?reportId=b63b6d65-ce01-45f4-9a85-5c30781acdad&autoAuth=true&ctid=75e027c9-20d5-47d5-b82f-77d7cd041e8f"
+            src="https://app.powerbi.com/reportEmbed?reportId=b44ed7c9-c318-4714-9b58-bc4f61f3fd2e&autoAuth=true&ctid=75e027c9-20d5-47d5-b82f-77d7cd041e8f"
             frameborder="0"
-            allowfullscreen="true">
+            allowfullscreen="true"
+            sandbox="allow-same-origin allow-scripts">
             </iframe>
         </div>
+        <p></p>
         <div class="input-container">
             <input type="text" id="urls" placeholder="Enter URLs for iframes separated by commas" style="display: none;">
-            <button onclick="updateIframes()">Update Iframes</button>
+            <button class="update-button" onclick="updateIframes()">Update Reports</button>
         </div>
+        <p><br></p>
         <div class="grid-container">
             <iframe 
                 id="iframe1"
@@ -177,6 +180,15 @@
                 padding-right: 20px;
                 border: none;
                 overflow: hidden;
+            }
+            .update-button {
+                position: absolute;
+                right: 80px;
+                background-color: green;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
             }
         </style>
     </body>

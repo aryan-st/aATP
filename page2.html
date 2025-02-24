@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Webhook Example - Page 2</title>
+</head>
+<body>
+  <h1>Webhook Example - Page 2</h1>
+  <p>Parameter 1: <span id="param1"></span></p>
+  <p>Parameter 2: <span id="param2"></span></p>
+
+  <script>
+    // Function to get URL parameters
+    function getParameterByName(name) {
+      let url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+
+    // Get parameters from URL and display
+    document.getElementById('param1').textContent = getParameterByName('param1');
+    document.getElementById('param2').textContent = getParameterByName('param2');
+
+    // Example webhook URL (change to your actual webhook URL)
+    let webhookUrl = 'https://example.com/webhook';
+
+    // Send parameters to webhook
+    fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        param1: getParameterByName('param1'),
+        param2: getParameterByName('param2')
+      })
+    }).then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+  </script>
+</body>
+</html>
